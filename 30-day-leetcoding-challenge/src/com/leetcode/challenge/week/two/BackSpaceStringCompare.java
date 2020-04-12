@@ -34,8 +34,7 @@ public class BackSpaceStringCompare {
 	}
 
 	/**
-	 * Time - O(M+N)
-	 * Space - O()
+	 * Time - O(M+N) Space - O()
 	 * 
 	 * @param S
 	 * @param T
@@ -52,56 +51,57 @@ public class BackSpaceStringCompare {
 		for (int i = 0; i < S.length(); i++) {
 			if (S.charAt(i) == '#') {
 				if (sb.length() > 0)
-					sb.deleteCharAt(sb.length()-1);
+					sb.deleteCharAt(sb.length() - 1);
 			} else {
 				sb.append(S.charAt(i));
 			}
 		}
 		return sb.toString();
 	}
-	
+
 	public boolean backspaceCompare_2(String s1, String s2) {
-        int p1 = s1.length()-1;
-        int p2 = s2.length()-1;
-        
-        int backCount1 = 0;
-        int backCount2 = 0;
-        while(p1 >= 0 || p2 >= 0) {
-            while (p1>=0 && (backCount1 > 0 || s1.charAt(p1) == '#')) {
-                if (s1.charAt(p1) == '#') {
-                    backCount1++;                
-                } else {
-                    backCount1--;
-                }
-                
-                p1--;
-            }
-            
-            while (p2>= 0 && (backCount2 > 0 || s2.charAt(p2) == '#')) {
-                if (s2.charAt(p2) == '#') {
-                    backCount2++;
-                } else {
-                    backCount2--;
-                }
-                
-                p2--;
-            }
-            
-            if (p1 >=0 && p2 >=0) {
-                if (s1.charAt(p1) != s2.charAt(p2)) return false;
-                p1--;
-                p2--;
-            } else if (p1 < 0 && p2 >= 0) {
-                return false;
-            } else if (p2 < 0 && p1 >= 0) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        
-        return true;
-    }
+		int p1 = s1.length() - 1;
+		int p2 = s2.length() - 1;
+
+		int backCount1 = 0;
+		int backCount2 = 0;
+		while (p1 >= 0 || p2 >= 0) {
+			while (p1 >= 0 && (backCount1 > 0 || s1.charAt(p1) == '#')) {
+				if (s1.charAt(p1) == '#') {
+					backCount1++;
+				} else {
+					backCount1--;
+				}
+
+				p1--;
+			}
+
+			while (p2 >= 0 && (backCount2 > 0 || s2.charAt(p2) == '#')) {
+				if (s2.charAt(p2) == '#') {
+					backCount2++;
+				} else {
+					backCount2--;
+				}
+
+				p2--;
+			}
+
+			if (p1 >= 0 && p2 >= 0) {
+				if (s1.charAt(p1) != s2.charAt(p2))
+					return false;
+				p1--;
+				p2--;
+			} else if (p1 < 0 && p2 >= 0) {
+				return false;
+			} else if (p2 < 0 && p1 >= 0) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		return true;
+	}
 
 	public static void main(String[] args) {
 		BackSpaceStringCompare leetcode = new BackSpaceStringCompare();
