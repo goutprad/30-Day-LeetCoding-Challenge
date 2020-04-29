@@ -4,7 +4,6 @@ public class PerformStringShift {
 	public String stringShift(String s, int[][] shift) {
 		int left = 0;
 		int right = 0;
-		System.out.println(s.length());
 		String result = "";
 		for (int i = 0; i < shift.length; i++) {
 			if (shift[i][0] == 1) {
